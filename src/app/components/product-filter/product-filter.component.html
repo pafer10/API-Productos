@@ -1,0 +1,37 @@
+<form #miForm="ngForm" (ngSubmit)="getDataForm(miForm)">
+  <div class="d-flex gap-2">
+    <input
+      type="text"
+      name="name"
+      id="name"
+      ngModel
+      placeholder="Buscar por nombre"
+    />
+
+    <!-- Así forzamos que únicamente se pueda buscar en función de estas categorías -->
+    <select name="category" id="category" class="form-select" ngModel>
+      <option value="">Seleccione categoría</option>
+      <option value="hombre">Hombre</option>
+      <option value="mujer">Mujer</option>
+      <option value="niño">Niño</option>
+    </select>
+    
+    <!-- Hemos optado por utilizar rangos para que fuera más simple. Finalmente como trabajamos en memoria,
+   solo se podrán usar los precios de los productos ya existentes en la API por lo que los precios
+   sí o sí se encuentran entre estos rangos -->
+    <select name="price" id="price" class="form-select" ngModel>
+      <option value="">Seleccione un rango de precio</option>
+      <option value="1-10">1-10 €</option>
+      <option value="10-15">10-15 €</option>
+      <option value="15-35">15-35 €</option>
+    </select>
+
+    <select name="active" id="active" class="form-select" ngModel>
+      <option value="">Seleccione una opción</option>
+      <option value="true">Activo</option>
+      <option value="false">Inactivo</option>
+    </select>
+
+    <input class="btn btn-primary btn-sm" type="submit" value="Filtrar" />
+  </div>
+</form>
